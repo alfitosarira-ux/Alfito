@@ -1,38 +1,32 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Happy Birthday</title>
     <style>
-        body{
+        body {
             color: #eee;
-            font-family:    ;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            background-image:
-            repeating-linear-gradient(
-                to right, #2d2a44 0 1px, transparent 2px 200px
-            ),
-            repeating-linear-gradient(
-                to bottom, #2d2a44 0 1px, transparent 2px 200px
-            ),
-            radial-gradient(
-                at 50% 50%, #2d2a44, #1d1b34
-            );
+            background:
+                radial-gradient(at 20% 80%, #eec7b7 0 40%, #611c35 70%, #090025 100%),
+                repeating-linear-gradient( to right, #2d2a44 0 1px, transparent 2px 200px),
+                repeating-linear-gradient( to bottom, #2d2a44 0 1px, transparent 2px 200px);
         }
-        ::-webkit-scrollbar{
+        ::-webkit-scrollbar {
             width: 0;
         }
-        *{
+        * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
             list-style: none;
         }
-        header img{
+        header img {
             width: 30px;
         }
-        header{
+        header {
             width: min(1200px, 90vw);
             margin: auto;
             height: 70px;
@@ -40,25 +34,20 @@
             justify-content: space-between;
             align-items: center;
         }
-        header nav ul{
+        header nav ul {
             display: flex;
             gap: 30px;
         }
-        main{
-
-        }
-        main .banner{
+        main .banner {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 30px;
             text-align: center;
             margin-top: -70px;
-        }
-        h1, h2, h3, h4, h5, h6{
-            font-weight: 500;
+            position: relative;
         }
         .banner button{
             all: unset;
@@ -75,27 +64,37 @@
             background-color: #c691e6;
             color: #040018;
             box-shadow: 0 0 50px #c691e6;
-
         }
-        h1{
-            --to: left;
+        h1 {
             font-size: 4em;
             font-weight: bold;
             background-image: linear-gradient(
-                to var(--to), #89a5df, #e46e7f, #e8e191
+                to left, #f77062, #fe5196, #fcf6ba, #90f2ff
             );
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
             line-height: 1em;
         }
-        h1.right{
-            --to: right;
+        h1.right {
+            background-image: linear-gradient(
+                to right, #fcf6ba, #7bffb3, #53a0fd
+            );
         }
-        .banner{
+        .banner .cake {
+            width: 140px;
+            height: 140px;
+            margin: 15px auto 0 auto;
+            cursor: pointer;
+            z-index: 2;
             position: relative;
+            transition: transform .2s;
         }
-        .banner #dotsCanvas{
+        .banner .cake:hover {
+            transform: scale(1.05) rotate(-1deg);
+            box-shadow: 0 8px 40px #fdc5da99;
+        }
+        .banner #dotsCanvas {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -103,6 +102,28 @@
             left: 0;
             pointer-events: none;
             display: block;
+            z-index: 1;
+        }
+        .banner #giftCanvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 3;
+        }
+        .theme-music {
+            font-size: 1.7em;
+            color: #ffe75a;
+            text-shadow: 1px 2px 10px #f7c13e, 1px 1px 0px #fff;
+            letter-spacing: 0.1em;
+        }
+        .birthday-message {
+            font-size: 2.2em;
+            color: #fe5196;
+            text-shadow: 2px 2px 0px #fff5, 0 0 22px #ff6fa5a2, 0 1px 10px #fff6;
+            margin-bottom: -10px;
         }
     </style>
 </head>
@@ -124,37 +145,64 @@
         <div class="banner">
             <h5>@Pixxlz</h5>
             <div>
-                <h1 class="left">Welcome to My Coding</h1>
+                <h1 class="left">🎂 Happy Birthday 🎉</h1>
                 <h1 class="right">Alfito</h1>
             </div>
+            <div class="birthday-message">Wishing you joy, code, and cake!</div>
+            <div class="theme-music">♫ ♬ ♩ ♭ ♪ ♫</div>
             <h4>
-                Subscribe to the channel to continuously
-                <br>update interesting videos
+                Click the cake for a gift surprise!
+                <br>Subscribe to the channel for more fun videos!
             </h4>
             <button>Subscribe Now &#8599</button>
+            <div class="cake" id="cakeBtn" title="Click Me!">
+                <!-- Simple SVG Cartoon Cake with candles -->
+                <svg viewBox="0 0 140 140" width="100%" height="100%">
+                    <ellipse cx="70" cy="105" rx="47" ry="26" fill="#fef2d0" stroke="#e1867f" stroke-width="4"/>
+                    <ellipse cx="70" cy="63" rx="47" ry="19" fill="#f6b2e5" stroke="#e1867f" stroke-width="4"/>
+                    <rect x="23" y="63" width="94" height="42" rx="20" fill="#fb7695" stroke="#e1867f" stroke-width="4"/>
+                    <rect x="56" y="36" width="8" height="22" rx="3" fill="#ffe28c"/>
+                    <rect x="68" y="36" width="8" height="22" rx="3" fill="#ffe28c"/>
+                    <rect x="80" y="36" width="8" height="22" rx="3" fill="#ffe28c"/>
+                    <circle cx="60" cy="36" r="4" fill="#ffb300"/>
+                    <circle cx="72" cy="36" r="4" fill="#ffb300"/>
+                    <circle cx="84" cy="36" r="4" fill="#ffb300"/>
+                    <!-- Candle flames -->
+                    <ellipse cx="60" cy="33" rx="2" ry="4" fill="#fff3ac"/>
+                    <ellipse cx="72" cy="33" rx="2" ry="4" fill="#fff3ac"/>
+                    <ellipse cx="84" cy="33" rx="2" ry="4" fill="#fff3ac"/>
+                </svg>
+            </div>
             <canvas id="dotsCanvas"></canvas>
+            <canvas id="giftCanvas"></canvas>
         </div>
-    </main>    
-
+    </main>
     <script>
+        // Utility
+        function resizeCanvas(canvas, elem){
+            canvas.width = elem.offsetWidth;
+            canvas.height = elem.offsetHeight;
+        }
+
+        // Dots (diamond, moving, blinking)
         let banner = document.querySelector('.banner');
         let canvas = document.getElementById('dotsCanvas');
-
-        // Helper: set canvas size to element size (physical pixels)
-        function resizeCanvas() {
-            canvas.width = banner.offsetWidth;
-            canvas.height = banner.offsetHeight;
-        }
-        resizeCanvas();
+        let giftCanvas = document.getElementById('giftCanvas');
+        resizeCanvas(canvas, banner);
+        resizeCanvas(giftCanvas, banner);
 
         const ctx = canvas.getContext('2d');
         let dots = [];
-        const arrayColors = ['#eee', '#545454', '#596d91', '#bb5a68', '#696541'];
-        const DOT_COUNT = 100;
+        const arrayColors = [
+            '#ffe75a','#fe5196','#fcf6ba','#b391f5', '#8cf3ff',
+            '#ffb86c','#ff6fa5','#67e0bb','#f77062','#fc3653'
+        ];
+        const DOT_COUNT = 55;
+        const BLINK_FREQ = 26;
+        const DIAMOND_SIZE = 9;
 
         function randomVelocity() {
-            // Random velocity between -1 and +1 for x and y
-            return (Math.random() - 0.5) * 0.8;
+            return (Math.random() - 0.5) * 1.2;
         }
 
         function setupDots(count) {
@@ -165,52 +213,14 @@
                     y:  Math.random() * canvas.height,
                     vx: randomVelocity(),
                     vy: randomVelocity(),
-                    size: Math.random() * 3 + 5,
-                    color: arrayColors[Math.floor(Math.random() * arrayColors.length)]
+                    size: DIAMOND_SIZE + Math.random()*2,
+                    color: arrayColors[Math.floor(Math.random() * arrayColors.length)],
+                    blinkPhase: Math.random()*Math.PI*2
                 });
             }
         }
         setupDots(DOT_COUNT);
 
-        // Animation loop for moving dots
-        function animateDots() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            dots.forEach(dot => {
-                // Move dot
-                dot.x += dot.vx;
-                dot.y += dot.vy;
-
-                // Bounce off walls
-                if (dot.x < dot.size) { dot.x = dot.size; dot.vx*=-1; }
-                if (dot.x > canvas.width-dot.size) { dot.x = canvas.width-dot.size; dot.vx*=-1; }
-                if (dot.y < dot.size) { dot.y = dot.size; dot.vy*=-1; }
-                if (dot.y > canvas.height-dot.size) { dot.y = canvas.height-dot.size; dot.vy*=-1; }
-
-                // Draw dot
-                ctx.fillStyle = dot.color;
-                ctx.beginPath();
-                ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI*2);
-                ctx.fill();
-            });
-
-            if (mouse !== null) {
-                // Draw connecting lines to mouse
-                dots.forEach(dot => {
-                    let distance = Math.sqrt((mouse.x - dot.x) ** 2 + (mouse.y - dot.y) ** 2);
-                    if(distance < 150){
-                        ctx.strokeStyle = dot.color;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(dot.x, dot.y);
-                        ctx.lineTo(mouse.x, mouse.y);
-                        ctx.stroke();
-                    }
-                });
-            }
-            requestAnimationFrame(animateDots);
-        }
-
-        // Mouse effects
         let mouse = null;
         banner.addEventListener('mousemove', (event) => {
             const rect = banner.getBoundingClientRect();
@@ -219,18 +229,165 @@
                 y: event.clientY - rect.top
             };
         });
-        banner.addEventListener('mouseleave', () => {
-            mouse = null;
-        });
+        banner.addEventListener('mouseleave', () => { mouse = null; });
 
-        // Resize event
         window.addEventListener('resize', () => {
-            resizeCanvas();
+            resizeCanvas(canvas, banner);
+            resizeCanvas(giftCanvas, banner);
             setupDots(DOT_COUNT);
         });
 
-        // Start animation
+        // Draw diamond shape
+        function drawDiamond(ctx, x, y, size, color, alpha) {
+            ctx.save();
+            ctx.globalAlpha = alpha !== undefined ? alpha : 1;
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.moveTo(x, y-size/2);
+            ctx.lineTo(x+size/2, y);
+            ctx.lineTo(x, y+size/2);
+            ctx.lineTo(x-size/2, y);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        // Animate dots
+        let frame = 0;
+        function animateDots() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            dots.forEach(dot => {
+                // Move dot
+                dot.x += dot.vx;
+                dot.y += dot.vy;
+
+                // Bounce off walls
+                if (dot.x < dot.size) { dot.x = dot.size; dot.vx *= -1; }
+                if (dot.x > canvas.width-dot.size) { dot.x = canvas.width-dot.size; dot.vx *= -1; }
+                if (dot.y < dot.size) { dot.y = dot.size; dot.vy *= -1; }
+                if (dot.y > canvas.height-dot.size) { dot.y = canvas.height-dot.size; dot.vy *= -1; }
+
+                // Blinking effect
+                let blink = 0.65 + 0.35*Math.sin(frame/BLINK_FREQ + dot.blinkPhase);
+
+                // Draw diamond
+                drawDiamond(ctx, dot.x, dot.y, dot.size, dot.color, blink);
+            });
+
+            // Mouse lines
+            if (mouse !== null) {
+                dots.forEach(dot => {
+                    let distance = Math.sqrt((mouse.x - dot.x) ** 2 + (mouse.y - dot.y) ** 2);
+                    if(distance < 140){
+                        ctx.save();
+                        ctx.strokeStyle = dot.color;
+                        ctx.globalAlpha = 0.2;
+                        ctx.lineWidth = 2;
+                        ctx.beginPath();
+                        ctx.moveTo(dot.x, dot.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                        ctx.restore();
+                    }
+                });
+            }
+            frame++;
+            requestAnimationFrame(animateDots);
+        }
         animateDots();
+
+        // --- Surprise Gift Animation (Stars pop out of Cake) ---
+        function randomStarColor() {
+            return arrayColors[Math.floor(Math.random() * arrayColors.length)];
+        }
+        function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius, fill, alpha) {
+            let rot = Math.PI / 2 * 3;
+            let x = cx;
+            let y = cy;
+            let step = Math.PI / spikes;
+
+            ctx.save();
+            ctx.globalAlpha = alpha !== undefined ? alpha : 1;
+            ctx.beginPath();
+            ctx.moveTo(cx, cy - outerRadius)
+            for (let i = 0; i < spikes; i++) {
+                x = cx + Math.cos(rot) * outerRadius;
+                y = cy + Math.sin(rot) * outerRadius;
+                ctx.lineTo(x, y)
+                rot += step
+
+                x = cx + Math.cos(rot) * innerRadius;
+                y = cy + Math.sin(rot) * innerRadius;
+                ctx.lineTo(x, y)
+                rot += step
+            }
+            ctx.lineTo(cx, cy - outerRadius);
+            ctx.closePath();
+            ctx.fillStyle = fill;
+            ctx.shadowColor = "#fff";
+            ctx.shadowBlur = 6;
+            ctx.fill();
+            ctx.restore();
+        }
+
+        let gifts = [];
+        function popGifts(x, y) {
+            gifts = [];
+            for (let i = 0; i < 25; i++) {
+                let a = Math.PI*2*i/25 + Math.random()*0.4;
+                let r = 5 + Math.random()*10;
+                gifts.push({
+                    x: x,
+                    y: y,
+                    vx: Math.cos(a)*r,
+                    vy: Math.sin(a)*r - (Math.random()*5 + 4),
+                    spin: Math.random()*2*Math.PI,
+                    color: randomStarColor(),
+                    life: 60 + Math.random()*16, // frames
+                    size: 14+Math.random()*8,
+                    alpha: 1
+                });
+            }
+        }
+        function animateGifts() {
+            let ctxStar = giftCanvas.getContext('2d');
+            ctxStar.clearRect(0, 0, giftCanvas.width, giftCanvas.height);
+            gifts.forEach(gift => {
+                drawStar(
+                    ctxStar, gift.x, gift.y,
+                    5, gift.size, gift.size/2,
+                    gift.color,
+                    gift.alpha
+                );
+                // Physics
+                gift.vy += 0.22; // gravity
+                gift.x += gift.vx;
+                gift.y += gift.vy;
+                gift.life-=1;
+                gift.alpha = Math.max(0, gift.life/80);
+            });
+            gifts = gifts.filter(gift => gift.life > 0);
+            if (gifts.length > 0) requestAnimationFrame(animateGifts);
+        }
+
+        // Cake button click: trigger animation of gifts
+        const cakeBtn = document.getElementById('cakeBtn');
+        cakeBtn.addEventListener('click', function(e){
+            // Calculate cake position inside banner
+            let rect = cakeBtn.getBoundingClientRect();
+            let bannerRect = banner.getBoundingClientRect();
+            let centerX = rect.left + rect.width/2 - bannerRect.left;
+            let centerY = rect.top + rect.height/2 - bannerRect.top;
+            popGifts(centerX, centerY);
+            animateGifts();
+            cakeBtn.classList.add("cake-pop");
+            // Optional: Sound/music
+        });
+
+
+        // (Optional) Play Happy Birthday sound: you can add an <audio> element and trigger it on cakeBtn click
+
+        // End of script
     </script>
 </body>
 </html>
