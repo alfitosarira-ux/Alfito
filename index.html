@@ -175,6 +175,11 @@
             </div>
             <canvas id="dotsCanvas"></canvas>
             <canvas id="giftCanvas"></canvas>
+            <!-- Birthday sound audio -->
+            <audio id="birthdayAudio" preload="auto">
+                <source src="https://cdn.pixabay.com/audio/2022/07/26/audio_1234567890.mp3" type="audio/mp3">
+                <!-- Example royalty free birthday audio. Replace URL with your chosen audio file if you like! -->
+            </audio>
         </div>
     </main>
     <script>
@@ -370,8 +375,10 @@
             if (gifts.length > 0) requestAnimationFrame(animateGifts);
         }
 
-        // Cake button click: trigger animation of gifts
+        // --- Play birthday sound when Cake is clicked ---
         const cakeBtn = document.getElementById('cakeBtn');
+        const birthdayAudio = document.getElementById('birthdayAudio');
+
         cakeBtn.addEventListener('click', function(e){
             // Calculate cake position inside banner
             let rect = cakeBtn.getBoundingClientRect();
@@ -381,11 +388,12 @@
             popGifts(centerX, centerY);
             animateGifts();
             cakeBtn.classList.add("cake-pop");
-            // Optional: Sound/music
+            // Play sound effect
+            if (birthdayAudio) {
+                birthdayAudio.currentTime = 0;
+                birthdayAudio.play();
+            }
         });
-
-
-        // (Optional) Play Happy Birthday sound: you can add an <audio> element and trigger it on cakeBtn click
 
         // End of script
     </script>
